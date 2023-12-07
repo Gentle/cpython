@@ -316,7 +316,7 @@ _pthread_t_to_ident(pthread_t value) {
     return (uintptr_t) value;
 #elif SIZEOF_PTHREAD_T == SIZEOF_LONG
     return (unsigned long) value;
-#elif SIZEOF_PTHREAD_T == SIZEOF_INT
+#elif SIZEOF_PTHREAD_T == SIZEOF_INT || defined(__wasi__)
     return (unsigned int) value;
 #elif SIZEOF_PTHREAD_T == SIZEOF_LONG_LONG
     return (unsigned long long) value;
